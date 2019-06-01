@@ -136,6 +136,7 @@ namespace Labo2.Controllers
         /// <returns>The added expense with all fields</returns>
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [Authorize(Roles = "Admin,Regular")]
         [Authorize]
         // PUT: api/Expenses/2
         [HttpPut("{id}")]
@@ -165,6 +166,7 @@ namespace Labo2.Controllers
         /// <returns>The deleted item or not found</returns>
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [Authorize(Roles = "Admin,Regular")]
         [Authorize]
         // DELETE: api/ApiWithActions/2
         [HttpDelete("{id}")]
