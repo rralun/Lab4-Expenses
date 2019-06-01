@@ -22,8 +22,9 @@ namespace Labo2.Models
                 .HasOne(e => e.Expense)
                 .WithMany(c => c.Comments)
                 .OnDelete(DeleteBehavior.Cascade);
+ 
         }
-
+    
         public DbSet<Expense> Expenses { get; set; }
         public DbSet<Comment> Comment { get; set; }
         public DbSet<User> Users { get; set; }

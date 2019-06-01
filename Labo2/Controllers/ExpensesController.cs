@@ -109,7 +109,7 @@ namespace Labo2.Controllers
         /// <param name="expense"></param>
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        [Authorize]
+        [Authorize(Roles = "Admin,Regular")]
         [HttpPost]
         public void Post([FromBody] ExpensePostModel expense)
         {
@@ -136,6 +136,7 @@ namespace Labo2.Controllers
         /// <returns>The added expense with all fields</returns>
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [Authorize]
         // PUT: api/Expenses/2
         [HttpPut("{id}")]
         public IActionResult Put(int id, [FromBody] Expense expense)
@@ -164,6 +165,7 @@ namespace Labo2.Controllers
         /// <returns>The deleted item or not found</returns>
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [Authorize]
         // DELETE: api/ApiWithActions/2
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
